@@ -3,7 +3,35 @@
 ---
 @charset "utf-8";
 
+@import url("https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css");
 
+@font-face {
+    font-family: 'Blacksword';
+    src: url('../assets/fonts/Blacksword.eot');
+    /* IE9 Compat Modes */
+    src: url('../assets/fonts/Blacksword.eot?#iefix') format('embedded-opentype'),
+        /* Super Modern Browsers */
+        url('../assets/fonts/Blacksword.woff') format('woff'),
+        /* Pretty Modern Browsers */
+        url('../assets/fonts/Blacksword.ttf') format('truetype'),
+        /* Safari, Android, iOS */
+        url('../assets/fonts/Blacksword.svg#svgFontName') format('svg');
+    /* Legacy iOS */
+}
+
+@font-face {
+    font-family: 'American Typewriter Condensed';
+    src: url('../assets/fonts/AmericanTypewriter-Condensed.eot');
+    /* IE9 Compat Modes */
+    src: url('../assets/fonts/AmericanTypewriter-Condensed.eot?#iefix') format('embedded-opentype'),
+        /* Super Modern Browsers */
+        url('../assets/fonts/AmericanTypewriter-Condensed.woff') format('woff'),
+        /* Pretty Modern Browsers */
+        url('../assets/fonts/AmericanTypewriter-Condensed.ttf') format('truetype'),
+        /* Safari, Android, iOS */
+        url('../assets/fonts/AmericanTypewriter-Condensed.svg#svgFontName') format('svg');
+    /* Legacy iOS */
+}
 
 // Our variables
 $base-font-family: Helvetica, Arial, sans-serif;
@@ -27,6 +55,14 @@ $content-width:    800px;
 $on-palm:          600px;
 $on-laptop:        800px;
 
+// Colors
+.is-warning, .has-background-warning {
+    background-color: rgb(242, 221, 131) !important;
+}
+
+.is-danger, .has-background-danger {
+    background-color: rgb(229, 115, 120) !important;
+}
 
 
 // Using media queries with like this:
@@ -50,3 +86,63 @@ $on-laptop:        800px;
         "layout",
         "syntax-highlighting"
 ;
+
+hr {
+    margin: 3rem 0;
+}
+
+.avatar {
+    position: relative;
+    z-index: 2;
+    margin: 0 auto -96px;
+    width: 200px;
+    height: 200px;
+    background-image: url('../assets/paz_avatar.png');
+    background-size: cover;
+    background-color: white;
+    border: 5px rgb(242, 221, 131) solid;
+    border-radius: 100%;
+}
+
+.brand.title {
+    font-family: 'Blacksword';
+    cursor: pointer;
+    -webkit-filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.3));
+    margin: 0 auto 4rem;
+    max-width: 24rem;
+    -webkit-transform: scale(1.125);
+    -ms-transform: scale(1.125);
+    transform: scale(1.125);
+    -webkit-transition: 250ms ease;
+    transition: 250ms ease;
+    width: 80%;
+}
+
+h1.brand.title {
+    font-size: 8rem;
+    font-weight: 100;
+}
+
+.brand.subtitle {
+    font-family: 'American Typewriter Condensed';
+}
+
+h2.brand.subtitle {
+    font-size: 2.5rem;
+    letter-spacing: 1rem;
+    margin-left: 2rem
+}
+
+h3.brand.subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 0.25rem;
+    font-weight: 800;
+    margin-left: 1rem
+
+}
+
+.section-separator {
+    margin-top: calc(7px - 8rem);
+    height: 4rem;
+}
