@@ -5,37 +5,27 @@
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css");
 
-@font-face {
-    font-family: 'Blacksword';
-    src: url('../assets/fonts/Blacksword.eot');
-    /* IE9 Compat Modes */
-    src: url('../assets/fonts/Blacksword.eot?#iefix') format('embedded-opentype'),
-        /* Super Modern Browsers */
-        url('../assets/fonts/Blacksword.woff') format('woff'),
-        /* Pretty Modern Browsers */
-        url('../assets/fonts/Blacksword.ttf') format('truetype'),
-        /* Safari, Android, iOS */
-        url('../assets/fonts/Blacksword.svg#svgFontName') format('svg');
-    /* Legacy iOS */
+
+@mixin font($font-family, $font-file) {
+    @font-face {
+        font-family: $font-family;
+        src: url($font-file+'.eot');
+        src: url($font-file+'.eot?#iefix') format('embedded-opentype'),
+            url($font-file+'.woff') format('woff'),
+            url($font-file+'.ttf') format('truetype'),
+            url($font-file+'.svg#aller') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
 }
 
-@font-face {
-    font-family: 'American Typewriter Condensed';
-    src: url('../assets/fonts/AmericanTypewriter-Condensed.eot');
-    /* IE9 Compat Modes */
-    src: url('../assets/fonts/AmericanTypewriter-Condensed.eot?#iefix') format('embedded-opentype'),
-        /* Super Modern Browsers */
-        url('../assets/fonts/AmericanTypewriter-Condensed.woff') format('woff'),
-        /* Pretty Modern Browsers */
-        url('../assets/fonts/AmericanTypewriter-Condensed.ttf') format('truetype'),
-        /* Safari, Android, iOS */
-        url('../assets/fonts/AmericanTypewriter-Condensed.svg#svgFontName') format('svg');
-    /* Legacy iOS */
-}
+@include font('Blacksword', '../assets/fonts/Blacksword');
+@include font('Boomville', '../assets/fonts/Boomville-regular');
+@include font('AmericanTypewriterCondensed', '../assets/fonts/AmericanTypewriter-Condensed');
 
 // Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
+$base-font-family: AmericanTypewriterCondensed, Helvetica, Arial, sans-serif;
+$base-font-size:   18px;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
@@ -60,10 +50,40 @@ $on-laptop:        800px;
     background-color: rgb(242, 221, 131) !important;
 }
 
+.has-text-warning {
+    color: rgb(242, 221, 131) !important;
+}
+
 .is-danger, .has-background-danger {
     background-color: rgb(229, 115, 120) !important;
 }
 
+.has-text-danger {
+    color: rgb(229, 115, 120) !important;
+}
+
+.is-success, .has-background-success {
+    background-color: rgb(103, 175, 128) !important;
+}
+
+.has-text-success {
+    color: rgb(103, 175, 128) !important;
+}
+
+.is-info, .has-background-info {
+    background-color: rgb(98, 131, 194) !important;
+}
+
+.has-text-success {
+    color: rgb(98, 131, 194) !important;
+}
+
+.content {
+    h1, h2, h3 {
+        font-family: Blacksword;
+        font-weight: 100;
+    }
+}
 
 // Using media queries with like this:
 // @include media-query($on-palm) {
@@ -105,7 +125,7 @@ hr {
 }
 
 .brand.title {
-    font-family: 'Blacksword';
+    font-family: Blacksword;
     cursor: pointer;
     -webkit-filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.3));
     filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.3));
@@ -125,7 +145,7 @@ h1.brand.title {
 }
 
 .brand.subtitle {
-    font-family: 'American Typewriter Condensed';
+    font-family: AmericanTypewriterCondensed;
 }
 
 h2.brand.subtitle {
@@ -145,4 +165,10 @@ h3.brand.subtitle {
 .section-separator {
     margin-top: calc(7px - 8rem);
     height: 4rem;
+}
+
+ul.list-unstyled {
+    display: inline;
+    list-style: none;
+    margin: 0px;
 }
